@@ -1,7 +1,10 @@
-package PACKAGE_NAME;
+import java.util.Scanner;
 
-/**
- * Created by Magomed on 24.04.2017.
- */
 public class HomeWork_011 {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter your name:");
+        String name = scan.next();
+        System.out.println("Hello,"+name);
+    }
 }
