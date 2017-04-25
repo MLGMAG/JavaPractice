@@ -1,3 +1,5 @@
+package HomeWork_012;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
