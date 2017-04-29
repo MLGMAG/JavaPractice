@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class ArrayHolder {
 
-    private int Test;
+    private int A;
 
-    public int getTest(){
-        return Test;
+    public int getA(){
+        return A;
     }
-    public int setTest() {
+    public int setA() {
         Scanner scan = new Scanner(System.in);
-        Test = scan.nextInt();
-        this.Test = Test;
-        return Test;
+        A = scan.nextInt();
+        this.A = A;
+        return A;
     }
 
     private int MasSize;
