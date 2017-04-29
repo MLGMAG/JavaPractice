@@ -19,22 +19,26 @@ public class ConsolHelper {
             System.out.println("3.Показать текущий массив;");
             System.out.println("4.Найти елемент в текущем массиве;");
             AH.setTest();    //мы вводим значение
-            if (AH.getTest()==0){
-                System.out.println("Всего хорошего!");
+            switch (AH.getTest()){
+                case 0:
+                    System.out.println("Всего хорошего!");
+                    break;
+                case 1:
+                    AH.MassEnter();
+                    AH.MassCheck();
+                    break;
+                case 2:
+                    AH.MassSort();
+                    break;
+                case 3:
+                    AH.MassCheck();
+                    break;
+                case 4:
+                    AH.MassSearch();
+                    break;
+                default:
+                    System.out.println("Ошибка введите заново:");
             }
-            if (AH.getTest()==1){
-                AH.MassEnter();
-                AH.MassCheck();
-            }
-            if (AH.getTest()==2){
-                AH.MassSort();
-            }
-            if (AH.getTest()==3){
-                AH.MassCheck();
-            }
-            if (AH.getTest()==4){
-                AH.MassSearch();
-            }
-        }
         }
     }
+}
