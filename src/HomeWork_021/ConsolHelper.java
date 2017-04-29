@@ -18,7 +18,7 @@ public class ConsolHelper {
             System.out.println("2.Отсортировать текущий массив;");
             System.out.println("3.Показать текущий массив;");
             System.out.println("4.Найти елемент в текущем массиве;");
-            AH.getA();    //мы вводим значение
+            AH.setA();    //мы вводим значение
             if (AH.getA()==0){
                 System.out.println("Всего хорошего!");
             }
