@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class ArrayHolder {
 
-    private int A;
+    private int Test;
 
-    public int getA(){
-        return A;
+    public int getTest(){
+        return Test;
     }
-    public int setA() {
+    public int setTest() {
         Scanner scan = new Scanner(System.in);
-        A = scan.nextInt();
-        this.A = A;
-        return A;
+        Test = scan.nextInt();
+        this.Test = Test;
+        return Test;
     }
 
     private int MasSize;
@@ -75,14 +75,18 @@ public class ArrayHolder {
         System.out.println("Введите елемент который хотите найти:");
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
+        boolean b = false;
         for (int i = 0; i <imas.length ; i++) {
             if (a==imas[i]){
-                System.out.println("Данный елемент присутствует в массиве,его номер:");
-                System.out.println(i);
+                b=true;
             }
         }
-        System.out.println("Данный елемент не присутствует в массиве(");
+        if (b==false){
+            System.out.println("Данный елемент не присутствует в массиве(");
+        }
+        if (b==true){
+            System.out.println("Данный елемент присутствует в массиве;");
+        }
         System.out.println("=================================================");
     }
 }
-
