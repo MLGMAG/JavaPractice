@@ -5,17 +5,7 @@ import java.util.Scanner;
 
 public class ArrayHolder {
 
-    private int Test;
-
-    public int getTest(){
-        return Test;
-    }
-    public int setTest() {
-        Scanner scan = new Scanner(System.in);
-        Test = scan.nextInt();
-        this.Test = Test;
-        return Test;
-    }
+    public String Test;
 
     private int MasSize;
     public int getMasSize() {
@@ -76,17 +66,30 @@ public class ArrayHolder {
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
         boolean b = false;
+        int c = 0;
         for (int i = 0; i <imas.length ; i++) {
             if (a==imas[i]){
                 b=true;
+                c=i+1;
+                break;
             }
         }
         if (b==false){
             System.out.println("Данный елемент не присутствует в массиве(");
         }
         if (b==true){
-            System.out.println("Данный елемент присутствует в массиве;");
+            System.out.println("Данный елемент присутствует в массиве,его номе: "+c);
         }
         System.out.println("=================================================");
+    }
+    void Menu(){
+        System.out.println("                 Меню             ");
+        System.out.println("Выберите дейтсвие:");
+        System.out.println("0.Выход;");
+        System.out.println("1.Меню;");
+        System.out.println("2.Пересоздать массив;");
+        System.out.println("3.Отсортировать текущий массив;");
+        System.out.println("4.Показать текущий массив;");
+        System.out.println("5.Найти елемент в текущем массиве;");
     }
 }
