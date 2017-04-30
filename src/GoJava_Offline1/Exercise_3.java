@@ -24,6 +24,7 @@ public class Exercise_3 {
         Exercise_3 E3 = new Exercise_3();
         System.out.println("Вас приветствует ConsolHelper");
         E3.menu();
+
         while (true) {
             E3.Test = scan.next();
             switch (E3.Test) {
