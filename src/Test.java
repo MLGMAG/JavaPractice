@@ -1,7 +1,15 @@
-package PACKAGE_NAME;
+import HomeWork_021.ListHolder;
 
-/**
- * Created by Magomed on 14.05.2017.
- */
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Test {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        boolean a = false;
+        while(a){
+
+        }
+    }
 }

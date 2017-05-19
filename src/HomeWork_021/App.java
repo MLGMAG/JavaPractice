@@ -1,7 +1,8 @@
 package HomeWork_021;
 
-/**
- * Created by Magomed on 14.05.2017.
- */
 public class App {
+    public static void main(String[] args) {
+        ConsolHelper CH = new ConsolHelper();
+        CH.ConsolStart();
+    }
 }

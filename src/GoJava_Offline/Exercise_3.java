@@ -1,4 +1,4 @@
-package GoJava_Offline1;
+package GoJava_Offline;
 
 import java.util.Scanner;
 
