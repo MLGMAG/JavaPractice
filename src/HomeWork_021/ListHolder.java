@@ -7,30 +7,25 @@ public class ListHolder {
     List<Integer> list = new ArrayList<>();
 
     void add() {
-        try {
-            System.out.println("Enter element which will be added in List:");
-            int a = scan.nextInt();
-            list.add(a);
-            System.out.println("======================================================================");
-        } catch (Exception c) {
-            System.out.println("Error");
-            System.out.println("It's not String List ,so write only numbers ");
-            System.out.println("======================================================================");
+        System.out.println("Enter element which will be added in List:");
+        int a = scan.nextInt();
+        list.add(a);
+        for (int i = 0; i <list.size()-1 ; i++) {
+            list.set(i,list.get(i)+a);
         }
+        System.out.println("======================================================================");
     }
 
+
     void remove() {
-        try {
-            System.out.println("Enter element which will be removed:");
-            int a = scan.nextInt();
-            list.remove(a);
-            System.out.println("======================================================================");
+        System.out.println("Enter INDEX of element which will be removed:");
+        int a = scan.nextInt();
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i, list.get(i) - list.get(a));
         }
-        catch (Exception c){
-            System.out.println("Error");
-            System.out.println("It's not String List ,so write only numbers ");
-            System.out.println("======================================================================");
-        }
+        list.remove(a);
+        System.out.println("Element was removed");
+        System.out.println("======================================================================");
     }
 
     void much() {
@@ -39,21 +34,23 @@ public class ListHolder {
     }
 
     void SearchByValue() {
-        try {
+            System.out.println("Enter value of element:");
             int a = scan.nextInt();
-            list.contains(a);
-            if (true) {
-                System.out.println("List contains that object");
-            } else {
-                System.out.println("List not contains that object");
+            boolean b=true;
+            for (int i = 0; i <list.size() ; i++) {
+                if (list.get(i)==a){
+                    b=true;
+                }else{
+                    b=false;
+                }
+            }
+            if (b==true){
+                System.out.println("List contains that value");
+            }
+            if (b==false){
+                System.out.println("List not contains that value");
             }
             System.out.println("======================================================================");
-        }
-        catch (Exception c){
-            System.out.println("Error");
-            System.out.println("It's not String List ,so write only numbers ");
-            System.out.println("======================================================================");
-        }
     }
 
     void SearchByIndex() {

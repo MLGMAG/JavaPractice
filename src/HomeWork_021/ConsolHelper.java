@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ConsolHelper {
     ListHolder LH = new ListHolder();
     Scanner scan = new Scanner(System.in);
-    int a;
+    String a;
 
     void ConsolStart(){
         System.out.println("======================================================================");
@@ -15,53 +15,57 @@ public class ConsolHelper {
         C1();
         System.out.println("======================================================================");
         while (true) {
-            a = scan.nextInt();
+            a = scan.next();
             switch (a) {
-                case 0:
+                case "0":
                     System.out.println("Have a nice day)");
                     System.exit(0);
-                case 1:
+                case "1":
                     LH.view();
                     break;
-                case 2:
+                case "2":
                     LH.much();
                     C0();
                     break;
-                case 3:
+                case "3":
                     LH.add();
                     C0();
                     break;
-                case 4:
+                case "4":
                     LH.remove();
                     C0();
                     break;
-                case 5:
+                case "5":
                     LH.SearchByValue();
                     C0();
                     break;
-                case 6:
+                case "6":
                     LH.SearchByIndex();
                     C0();
                     break;
-                case 7:
+                case "7":
                     LH.SearchMaxNumber();
                     C0();
                     break;
-                case 8:
+                case "8":
                     LH.SearchMinNumber();
                     C0();
                     break;
-                case 9:
+                case "9":
                     LH.SearchAverageNumber();
                     C0();
                     break;
-                case 10:
+                case "10":
                     Menu();
                     C0();
                     break;
+                default:
+                    System.out.println("Error,enter again:");
             }
         }
     }
+
+
 
     void Menu(){
         System.out.println("0.Exit;");
