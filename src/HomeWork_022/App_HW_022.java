@@ -1,6 +1,8 @@
-package HomeWork_021;
+package HomeWork_022;
 
-public class App {
+import java.util.Scanner;
+
+public class App_HW_022 {
     public static void main(String[] args) {
         ConsolHelper CH = new ConsolHelper();
         CH.ConsolStart();
