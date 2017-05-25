@@ -2,9 +2,8 @@ package HomeWork_022;
 
 import java.util.Scanner;
 
-public class ConsolHelper {
+public class ConsolHelper extends CollectionHolder {
 
-    CollectionHolder CollectionH = new CollectionHolder();
     Scanner scan = new Scanner(System.in);
 
     public void ConsolStart(){
@@ -27,19 +26,19 @@ public class ConsolHelper {
 
         while (true){
 
-            if (CollectionH.list.size() < CollectionH.GetCapacity()){
+            if (list.size() < GetCapacity()){
                 String a = scan.next();
                 switch (a){
                     case "0":
                         System.out.println("Have a nice day");
                         System.exit(0);
                     case "1":
-                        System.out.println("List:"+CollectionH.list);
+                        System.out.println("List:"+list);
                         C1();
                         break;
                     case "2":
                         System.out.println("Enter the object which will be added to the list:");
-                        CollectionH.Add(scan.nextInt());
+                        Add(scan.nextInt());
                         C1();
                         break;
                     case "3":
@@ -50,19 +49,19 @@ public class ConsolHelper {
 
             }
 
-            if (CollectionH.list.size() == CollectionH.GetCapacity()){
+            if (list.size() == GetCapacity()){
                 String a = scan.next();
                 switch (a){
                     case "0":
                         System.out.println("Have a nice day");
                         System.exit(0);
                     case "1":
-                        System.out.println("List:"+CollectionH.list);
+                        System.out.println("List:"+list);
                         C1();
                         break;
                     case "2":
                         System.out.println("Enter the object which will be added to the list:");
-                        CollectionH.AddInFulLCollection(scan.nextInt());
+                        AddInFulLCollection(scan.nextInt());
                         C1();
                         break;
                     case "3":
@@ -85,10 +84,10 @@ public class ConsolHelper {
 
         switch (a){
             case "Y":
-                CollectionH.ChangeDefaultCapacity();
+                ChangeDefaultCapacity();
                 break;
             case "y":
-                CollectionH.ChangeDefaultCapacity();
+                ChangeDefaultCapacity();
                 break;
             case "N":
                 break;
