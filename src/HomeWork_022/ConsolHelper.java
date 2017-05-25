@@ -6,7 +6,7 @@ public class ConsolHelper extends CollectionHolder {
 
     Scanner scan = new Scanner(System.in);
 
-    public void ConsolStart(){
+    public void ConsolStart() {
         System.out.println("======================================================================");
         System.out.println("Hello,I'm ConsolHelper");
         System.out.println("Can I halp you:");
@@ -16,7 +16,7 @@ public class ConsolHelper extends CollectionHolder {
         System.out.println("======================================================================");
     }
 
-    public void menu(){
+    public void menu() {
 
         System.out.println("Choose operation:");
         System.out.println("0.Exit;");
@@ -24,16 +24,16 @@ public class ConsolHelper extends CollectionHolder {
         System.out.println("2.Add element;");
         System.out.println("3.Menu;");
 
-        while (true){
+        while (true) {
 
-            if (list.size() < GetCapacity()){
+            if (list.size() < GetCapacity()) {
                 String a = scan.next();
-                switch (a){
+                switch (a) {
                     case "0":
                         System.out.println("Have a nice day");
                         System.exit(0);
                     case "1":
-                        System.out.println("List:"+list);
+                        System.out.println("List:" + list);
                         C1();
                         break;
                     case "2":
@@ -49,14 +49,14 @@ public class ConsolHelper extends CollectionHolder {
 
             }
 
-            if (list.size() == GetCapacity()){
+            if (list.size() == GetCapacity()) {
                 String a = scan.next();
-                switch (a){
+                switch (a) {
                     case "0":
                         System.out.println("Have a nice day");
                         System.exit(0);
                     case "1":
-                        System.out.println("List:"+list);
+                        System.out.println("List:" + list);
                         C1();
                         break;
                     case "2":
@@ -77,12 +77,11 @@ public class ConsolHelper extends CollectionHolder {
     }
 
 
-
-    public void Capacity(){
+    public void Capacity() {
 
         String a = scan.next();
 
-        switch (a){
+        switch (a) {
             case "Y":
                 ChangeDefaultCapacity();
                 break;
@@ -100,7 +99,7 @@ public class ConsolHelper extends CollectionHolder {
 
     }
 
-    public void C1(){
+    public void C1() {
         System.out.println("Choose your next operation:");
     }
 
