@@ -21,14 +21,14 @@ public class CollectionHolder {
 
     List<Integer> list = new ArrayList<>(Capacity);
 
-    public void Add(int a){
+    public void Add(int a) {
         list.add(a);
         System.out.println("Element was added;");
     }
 
-    public void AddInFulLCollection(int a){
+    public void AddInFulLCollection(int a) {
         list.remove(0);
         list.add(a);
-        }
     }
+}
 

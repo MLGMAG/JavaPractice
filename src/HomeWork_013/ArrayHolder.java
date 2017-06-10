@@ -20,7 +20,7 @@ public class ArrayHolder {
 
     public int imas[];
 
-    void MassEnter() {
+    public void MassEnter() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите размер массива:");
         setMasSize();
@@ -34,7 +34,7 @@ public class ArrayHolder {
         }
         System.out.println("=================================================");
     }
-    void MassCheck(){
+    public void MassCheck(){
         System.out.println("Ваш текущий массив:");
         System.out.print("{");
         for (int i = 0; i <imas.length ; i++) {
@@ -47,7 +47,7 @@ public class ArrayHolder {
         System.out.println("}");
         System.out.println("=================================================");
     }
-    void MassSort(){
+    public void MassSort(){
         Arrays.sort(imas);
         System.out.println("Ваш массив(сортированный):");
         System.out.print("{");
@@ -61,7 +61,7 @@ public class ArrayHolder {
         System.out.println("}");
         System.out.println("=================================================");
     }
-    void MassSearch(){
+    public void MassSearch(){
         System.out.println("Введите елемент который хотите найти:");
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
@@ -74,15 +74,15 @@ public class ArrayHolder {
                 break;
             }
         }
-        if (b==false){
+        if (!b){
             System.out.println("Данный елемент не присутствует в массиве(");
         }
-        if (b==true){
+        if (b){
             System.out.println("Данный елемент присутствует в массиве,его номе: "+c);
         }
         System.out.println("=================================================");
     }
-    void Menu(){
+    public void Menu(){
         System.out.println("                 Меню             ");
         System.out.println("Выберите дейтсвие:");
         System.out.println("0.Выход;");
