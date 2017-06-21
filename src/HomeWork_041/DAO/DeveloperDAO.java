@@ -1,4 +1,6 @@
-package HomeWork_041;
+package HomeWork_041.DAO;
+
+import HomeWork_041.Model.Developer;
 
 import java.io.*;
 import java.util.*;

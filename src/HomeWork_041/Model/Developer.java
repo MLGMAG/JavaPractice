@@ -1,4 +1,4 @@
-package HomeWork_041;
+package HomeWork_041.Model;
 
 /**
  * Created by Magomed on 14.06.2017.
