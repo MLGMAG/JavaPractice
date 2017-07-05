@@ -19,14 +19,9 @@ public class DeveloperDAO {
     public void ReadDocument() {
         try (BufferedReader BuffRead = new BufferedReader(new FileReader("D:\\Java\\IdeaProjects\\HomeWorks\\src\\HomeWork_041\\Developers"))) {
             String line;
-            String a = null;
+            String a = "";
             while ((line = BuffRead.readLine()) != null) {
-                if (a == null) {
-                    a = line;
-                }
-                if (a != null) {
                     a += line;
-                }
             }
             Text = a;
         } catch (IOException e) {
