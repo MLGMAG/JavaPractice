@@ -2,3 +2,9 @@ out
 .idea
 
 *.iml
+
+# JNI
+src/jni/**/*.h
+src/jni/**/*.o
+src/jni/**/*.class
+src/jni/**/*.so
