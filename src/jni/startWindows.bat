@@ -9,7 +9,7 @@ del native.dll
 
 # Compile / Link
 # Generate header file
-javac -h . -d . NativeApi.java NativeApiDemo.java
+javac -h . -d . NativeApi.java NativeApiDemo.java NativeApiTest.java
 # Compile the implementation
 gcc -c -I${JAVA_HOME}\include -I${JAVA_HOME}\include\win32 jni_NativeApi.c -o jni_NativeApi.o
 # Create shared object based on the object file

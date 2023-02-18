@@ -7,7 +7,7 @@ rm libnative.so
 
 # Compile / Link
 # Generate header file
-javac -h . -d . NativeApi.java NativeApiDemo.java
+javac -h . -d . NativeApi.java NativeApiDemo.java NativeApiTest.java
 # Compile the implementation
 gcc -c -fPIC -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux jni_NativeApi.c -o jni_NativeApi.o
 # Create shared object based on the object file
