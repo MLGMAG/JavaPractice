@@ -1,7 +1,14 @@
+# Ignore IntelliJ IDEA specific entries
 out
 .idea
-
 *.iml
+
+# Ignore Gradle specific entries
+.gradle
+gradle
+gradlew
+gradlew.bat
+build
 
 # JNI
 java_practice/**/jni/**/*.h
