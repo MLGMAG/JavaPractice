@@ -4,7 +4,7 @@ out
 *.iml
 
 # JNI
-src/jni/**/*.h
-src/jni/**/*.o
-src/jni/**/*.class
-src/jni/**/*.so
+java_practice/**/jni/**/*.h
+java_practice/**/jni/**/*.o
+java_practice/**/jni/**/*.class
+java_practice/**/jni/**/*.so
