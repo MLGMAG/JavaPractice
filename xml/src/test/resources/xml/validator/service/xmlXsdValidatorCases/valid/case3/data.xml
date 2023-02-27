@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<commands>
+    <command>
+        <title>puts</title>
+        <args>1</args>
+        <class>cakevm.commands.PutsCommand</class>
+        <description>Print the input variable into the output stream</description>
+    </command>
+    <command>
+        <title>set</title>
+        <args>2</args>
+        <class>cakevm.commands.SetCommand</class>
+        <description>Declare and initialize new variable</description>
+    </command>
+    <command>
+        <title>inc</title>
+        <args>1</args>
+        <class>cakevm.commands.IncCommand</class>
+        <description>Increment input variable</description>
+    </command>
+    <command>
+        <title>dec</title>
+        <args>1</args>
+        <class>cakevm.commands.DecCommand</class>
+        <description>Decrement input variable</description>
+    </command>
+    <command>
+        <title>add</title>
+        <args>2</args>
+        <class>cakevm.commands.AddCommand</class>
+        <description>Increase variable on input amount</description>
+    </command>
+    <command>
+        <title>sub</title>
+        <args>2</args>
+        <class>cakevm.commands.SubCommand</class>
+        <description>Subtract variable on input amount</description>
+    </command>
+    <command>
+        <title>mult</title>
+        <args>2</args>
+        <class>cakevm.commands.MultCommand</class>
+        <description>Multiply variable on input amount</description>
+    </command>
+</commands>

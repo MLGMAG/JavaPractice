@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <class>
-    <student rollno="393">
+    <student1 rollno="393">
         <firstname>Dinkar</firstname>
         <lastname>Kad</lastname>
         <nickname>Dinkar</nickname>
         <marks>85</marks>
-    </student>
+    </student1>
 
     <student rollno="493">
         <firstname>Vaneet</firstname>
@@ -15,9 +15,10 @@
         <marks>95</marks>
     </student>
 
-    <student rollno="593">
+    <student rollno="0">
         <firstname>Jasvir</firstname>
         <lastname>Singh</lastname>
         <nickname>Jazz</nickname>
+        <marks>90</marks>
     </student>
 </class>
