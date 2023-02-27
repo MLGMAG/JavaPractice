@@ -1,2 +1,3 @@
 rootProject.name = 'java_practice'
 
+include 'xml_validator'
