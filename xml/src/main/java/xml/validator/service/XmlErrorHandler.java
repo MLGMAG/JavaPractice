@@ -3,7 +3,10 @@ package xml.validator.service;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXParseException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class XmlErrorHandler implements ErrorHandler {
 
@@ -15,6 +18,13 @@ public class XmlErrorHandler implements ErrorHandler {
 
     public XmlErrorHandler() {
         this.exceptions = getEmptyExceptions();
+    }
+
+    private static List<String> exceptionsToMessages(String exceptionType, List<SAXParseException> exceptions) {
+        String messagePattern = "[%s] %s";
+        return exceptions.stream()
+                .map(ex -> String.format(messagePattern, exceptionType, ex.getMessage()))
+                .toList();
     }
 
     public Map<String, List<SAXParseException>> getExceptions() {
@@ -54,4 +64,10 @@ public class XmlErrorHandler implements ErrorHandler {
         return emptyExceptions;
     }
 
+    public void printExceptions() {
+        exceptions.entrySet().stream()
+                .map(entry -> exceptionsToMessages(entry.getKey(), entry.getValue()))
+                .flatMap(List::stream)
+                .forEach(System.err::println);
+    }
 }

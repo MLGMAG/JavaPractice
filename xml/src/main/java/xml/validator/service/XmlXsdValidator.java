@@ -1,17 +1,14 @@
 package xml.validator.service;
 
-import org.xml.sax.SAXException;
+import xml.validator.context.XmlXsdValidationContext;
+import xml.validator.context.XmlXsdValidatorCreationContext;
+import xml.validator.util.XmlUtils;
 
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
-
-import static xml.validator.util.XmlUtils.createSchemaFactory;
+import java.io.InputStream;
 
 public class XmlXsdValidator {
 
@@ -19,55 +16,42 @@ public class XmlXsdValidator {
     private final XmlErrorHandler xmlErrorHandler = new XmlErrorHandler();
 
     public XmlXsdValidator() {
-        schemaFactory = createSchemaFactory();
+        schemaFactory = XmlUtils.createSchemaFactory();
     }
 
     public boolean isXmlFileValid(String xsdPath, String xmlPath) {
-        Validator validator = getXmlValidator(xsdPath);
-
-        try {
-            File xmlFile = new File(xmlPath);
-            validator.validate(new StreamSource(xmlFile));
+        try (
+                FileInputStream xsdFileInputStream = new FileInputStream(xsdPath);
+                FileInputStream xmlFileInputStream = new FileInputStream(xmlPath)
+        ) {
+            return isXmlFileValid(xsdFileInputStream, xmlFileInputStream);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
-        } catch (SAXException ex) {
-            throw new RuntimeException(ex);
-        }
-
-        if (xmlErrorHandler.isEmpty()) {
-            return true;
-        } else {
-            printExceptions();
-            xmlErrorHandler.clear();
-            return false;
         }
     }
 
-    private void printExceptions() {
-        xmlErrorHandler.getExceptions().entrySet().stream()
-                .map(entry -> {
-                    String messagePattern = "[%s] %s";
-                    return entry.getValue()
-                            .stream().map(ex -> String.format(messagePattern, entry.getKey(), ex.getMessage()))
-                            .toList();
-                })
-                .flatMap(List::stream)
-                .forEach(System.err::println);
-    }
+    public boolean isXmlFileValid(InputStream xsdInputStream, InputStream xmlInputStream) {
+        XmlXsdValidatorCreationContext creationContext = XmlXsdValidatorCreationContext.builder()
+                .xsdFileInputstream(xsdInputStream)
+                .xmlErrorHandler(xmlErrorHandler)
+                .schemaFactory(schemaFactory)
+                .build();
+        Validator validator = XmlUtils.createXmlValidator(creationContext);
 
-    private Validator getXmlValidator(String xsdFilePath) {
-        File xmlFile = new File(xsdFilePath);
-        Source schemaFile = new StreamSource(xmlFile);
+        XmlXsdValidationContext xmlXsdValidationContext = XmlXsdValidationContext.builder()
+                .xmlFileInputstream(xmlInputStream)
+                .validator(validator)
+                .build();
+        XmlUtils.validate(xmlXsdValidationContext);
 
-        Validator validator;
-        try {
-            Schema schema = schemaFactory.newSchema(schemaFile);
-            validator = schema.newValidator();
-        } catch (SAXException ex) {
-            throw new RuntimeException(ex);
+        boolean isValid = xmlErrorHandler.isEmpty();
+
+        if (!isValid) {
+            xmlErrorHandler.printExceptions();
         }
 
-        validator.setErrorHandler(xmlErrorHandler);
-        return validator;
+        xmlErrorHandler.clear();
+
+        return isValid;
     }
 }

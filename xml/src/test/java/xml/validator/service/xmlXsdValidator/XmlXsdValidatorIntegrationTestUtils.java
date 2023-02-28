@@ -3,9 +3,11 @@ package xml.validator.service.xmlXsdValidator;
 import xml.validator.util.XmlUtils;
 
 import java.io.File;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -15,7 +17,7 @@ public class XmlXsdValidatorIntegrationTestUtils {
     }
 
     public static List<XmlXsdValidatorIntegrationTestContext> parseCases(String filepath) {
-        String pathFromClasspath = XmlUtils.getPathFromClasspath(filepath);
+        String pathFromClasspath = getPathFromClasspath(filepath);
 
         File casesDir = new File(pathFromClasspath);
 
@@ -38,5 +40,17 @@ public class XmlXsdValidatorIntegrationTestUtils {
                 .schemaPath(schemaPath)
                 .dataPath(dataPath)
                 .build();
+    }
+
+    private static String getPathFromClasspath(String filepath) {
+        URL resource = XmlXsdValidatorIntegrationTestUtils.class.getResource(filepath);
+
+        if (Objects.isNull(resource)) {
+            String messagePattern = "Resource '%s' is empty";
+            String message = String.format(messagePattern, filepath);
+            throw new RuntimeException(message);
+        }
+
+        return resource.getPath();
     }
 }
