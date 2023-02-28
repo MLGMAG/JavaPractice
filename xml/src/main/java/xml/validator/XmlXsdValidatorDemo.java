@@ -1,7 +1,7 @@
 package xml.validator;
 
+import xml.util.XmlUtils;
 import xml.validator.service.XmlXsdValidator;
-import xml.validator.util.XmlUtils;
 
 import java.io.InputStream;
 

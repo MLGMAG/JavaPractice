@@ -2,7 +2,7 @@ package xml.validator.service;
 
 import xml.validator.context.XmlXsdValidationContext;
 import xml.validator.context.XmlXsdValidatorCreationContext;
-import xml.validator.util.XmlUtils;
+import xml.validator.util.XmlXsdValidatorUtils;
 
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
@@ -16,7 +16,7 @@ public class XmlXsdValidator {
     private final XmlErrorHandler xmlErrorHandler = new XmlErrorHandler();
 
     public XmlXsdValidator() {
-        schemaFactory = XmlUtils.createSchemaFactory();
+        schemaFactory = XmlXsdValidatorUtils.createSchemaFactory();
     }
 
     public boolean isXmlFileValid(String xsdPath, String xmlPath) {
@@ -36,13 +36,13 @@ public class XmlXsdValidator {
                 .xmlErrorHandler(xmlErrorHandler)
                 .schemaFactory(schemaFactory)
                 .build();
-        Validator validator = XmlUtils.createXmlValidator(creationContext);
+        Validator validator = XmlXsdValidatorUtils.createXmlValidator(creationContext);
 
         XmlXsdValidationContext xmlXsdValidationContext = XmlXsdValidationContext.builder()
                 .xmlFileInputstream(xmlInputStream)
                 .validator(validator)
                 .build();
-        XmlUtils.validate(xmlXsdValidationContext);
+        XmlXsdValidatorUtils.validate(xmlXsdValidationContext);
 
         boolean isValid = xmlErrorHandler.isEmpty();
 

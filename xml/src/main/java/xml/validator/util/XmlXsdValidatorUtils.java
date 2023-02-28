@@ -15,11 +15,10 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Objects;
 
-public class XmlUtils {
+public class XmlXsdValidatorUtils {
 
-    private XmlUtils() {
+    private XmlXsdValidatorUtils() {
     }
 
     public static SchemaFactory createSchemaFactory() {
@@ -33,18 +32,6 @@ public class XmlUtils {
             throw new RuntimeException(ex);
         }
         return schemaFactory;
-    }
-
-    public static InputStream getStreamFromClasspath(String filepath) {
-        InputStream resource = XmlUtils.class.getResourceAsStream(filepath);
-
-        if (Objects.isNull(resource)) {
-            String messagePattern = "Resource '%s' is empty";
-            String message = String.format(messagePattern, filepath);
-            throw new RuntimeException(message);
-        }
-
-        return resource;
     }
 
     public static Validator createXmlValidator(XmlXsdValidatorCreationContext creationContext) {
